@@ -19,5 +19,9 @@ const equipmentSchema = new Schema({
         long: Number,
     },
     weight:  Number,
-    
-})
+
+}, {
+    timestamps:true
+});
+
+module.exports = equipmentSchema;

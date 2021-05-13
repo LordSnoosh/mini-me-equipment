@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import './OrderHistoryPage.css';
+import Logo from '../../components/Logo/Logo';
+import * as equipsAPI from '../../utilities/equipment-api';
 import * as usersService from '../../utilities/users-service';
 import * as equipmentOrdersAPI from '../../utilities/equipment-orders-api';
-// import UserLogOut from '../../components/UserLogOut/UserLogOut';
-// import OrderDetail from '../../components/OrderDetail/OrderDetail';
-// import OrderList from '../../components/OrderList/OrderList';
-import { useEffect, useState } from 'react';
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import OrderDetail from '../../components/OrderDetail/OrderDetail';
+import EquipmentOrderList from '../../components/EquipmentOrderList/EquipmentOrderList';
 
-import * as userService from '../../utilities/users-service';
+import { useEffect, useState } from 'react';
 
 export default function OrderHistoryPage({ user, setUser }) {
   const [activeOrder, setActiveOrder] = useState('');
@@ -22,38 +23,40 @@ export default function OrderHistoryPage({ user, setUser }) {
     getOrders()
   }, []);
 
-  // useEffect(function() {
-  //   async function getItems() {
-  //     const items = await itemsAPI.getAll();
+  useEffect(function() {
+    async function getItems() {
+      const equip = await equipsAPI.getAll();
 
-  //     setMenuItems(items);
-      // setActiveCat(items[0].category.name);
-  //   }
-  //   getItems();
+      // setMenuItems(equip);
+      // setActiveCat(equip[0].category.name);
+    }
+    getItems();
 
-  //   // Load cart (a cart is the unpaid order for the logged in user)
-  //   async function getCart() {
-  //     const cart = await ordersAPI.getCart();
-  //     setCart(cart);
-  //   }
-  //   getCart();
-  // }, []);
+    // Load cart (a cart is the unpaid order for the logged in user)
+    async function getCart() {
+      const cart = await equipmentOrdersAPI.getCart();
+      // setCart(cart);
+    }
+    getCart();
+  }, []);
 
   return (
     <main className="OrderHistoryPage">
       <aside>
-        {/* <Logo /> */}
+        <Logo />
         <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
-        {/* <UserLogOut user={user} setUser={setUser} /> */}
+        <UserLogOut user={user} setUser={setUser} />
       </aside>
-      {/* <OrderList
+      
+      <EquipmentOrderList
         activeOrder={activeOrder}
         setActiveOrder={setActiveOrder}
         orders={orders}
-      />
+      /> 
+     
       <OrderDetail 
         order={activeOrder}
-      /> */}
+      /> 
   
 
     </main>
