@@ -27,11 +27,11 @@ export default function LogIn({ setUser }) {
     <div>
       <div className="form-container" onSubmit={handleSubmit}>
         <form autoComplete="off" >
-          <label>Email</label>
+          <label>Enter that Email</label>
           <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
+          <label>Gimme dat Password</label>
           <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <button type="submit">LETS GO</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
