@@ -8,8 +8,9 @@ export default function OrderHistoryPage() {
 
   return (
     <>
-      <h1>OrderHistoryPage</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
+      <h1>ORDER HISTORY</h1>
+      <p>Will have more here</p>
+      {/* <button onClick={handleCheckToken}>Check When My Login Expires</button> */}
     </>
   );
 }

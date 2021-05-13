@@ -41,15 +41,15 @@ export default class SignUpForm extends Component {
       <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
+            <label>What do they call you?</label>
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label>Email</label>
+            <label>Email, though it's meh</label>
             <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-            <label>Password</label>
+            <label>Super-Secret Password</label>
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
+            <label>Confirm Super-Secret Password</label>
             <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
+            <button type="submit" disabled={disable}>LETS GO</button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
