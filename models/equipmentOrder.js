@@ -17,7 +17,7 @@ equipmentItemSchema.virtual('extPrice').get(function() {
 
 const orderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User'},
-  lineItems: [EquipmentSchema],
+  lineItems: [equipmentSchema],
   isPaid: { type: Boolean, default: false }
 }, {
   timestamps: true,
