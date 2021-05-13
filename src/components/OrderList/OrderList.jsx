@@ -1,11 +1,12 @@
-import './EquipmentOrderList.css';
-import EquipmentOrderListItem from '../EquipmentOrderListItem/EquipmentOrderListItem'
-export default function EquipmentOrderList({ activeOrder, setActiveOrder, orders }) {
+import './OrderList.css';
+import OrderListItem from '../OrderListItem/OrderListItem';
+
+export default function OrderList({ activeOrder, setActiveOrder, orders }) {
   const orderItems = orders.map(ord =>
-    <EquipmentOrderListItem
+    <OrderListItem
       order={ord}
       isSelected={ord === activeOrder}
-    //   handleSelectOrder={handleSelectOrder}
+      // handleSelectOrder={handleSelectOrder}
       key={ord._id}
     />
   );

@@ -3,7 +3,7 @@ const equipmentSchema = require('./equipmentSchema');
 const Schema = mongoose.Schema;
 
 const equipmentItemSchema = new Schema({
-  qty: { type: Number, default: 1 },
+  qty: { type: Number, default: null },
   item: equipmentSchema
 }, {
   timestamps: true,
@@ -17,7 +17,7 @@ equipmentItemSchema.virtual('extPrice').get(function() {
 
 const orderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User'},
-  lineItems: [equipmentItemSchema],
+  lineItems: [EquipmentSchema],
   isPaid: { type: Boolean, default: false }
 }, {
   timestamps: true,
@@ -66,7 +66,7 @@ orderSchema.methods.addItemToCart = async function (itemId) {
     lineItem.qty += 1;
   } else {
     // Get the item from the "catalog"
-    const item = await mongoose.model('Item').findById(itemId);
+    const item = await mongoose.model('Equipment').findById(itemId);
     cart.lineItems.push({ item });
   }
   // return the save() method's promise

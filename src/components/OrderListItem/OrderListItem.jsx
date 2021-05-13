@@ -1,6 +1,6 @@
-import './EquipmentOrderListItem.css';
+import './OrderListItem.css';
 
-export default function EquipmentOrderListItem({ order, handleSelectOrder, isSelected }) {
+export default function OrderListItem({ order, handleSelectOrder, isSelected }) {
   return (
     <div className={`OrderListItem${isSelected ? ' selected' : ''}`} onClick={handleSelectOrder}>
       <div className="OrderId">
@@ -9,7 +9,7 @@ export default function EquipmentOrderListItem({ order, handleSelectOrder, isSel
         <span>{new Date(order.updatedAt).toLocaleDateString()}</span>
       </div>
       <div>
-        <span>{order.cost}</span>
+        <span>{order.price}</span>
         <span>{order.totalQty} Items</span>
       </div>
     </div>

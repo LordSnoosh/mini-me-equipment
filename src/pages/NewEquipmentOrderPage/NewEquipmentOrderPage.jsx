@@ -19,7 +19,11 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   useEffect(function() {
     async function getItems() {
       const items = await equipmentAPI.getAll();
-      setMenuItems(items);
+      // categoriesRef.current = items.reduce((cats, item) => {
+      //   const cat = item.category.name;
+      //   return cats.includes(cat) ? cats : [...cats, cat];
+      // }, []);
+      setMenuItems([items]);
       // setActiveCat(items[0].category.name);
     }
     getItems();
@@ -31,7 +35,7 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
     }
     getCart();
   }, []);
-
+  // console.log(menuItems);
   /*--- Event Handlers ---*/
   async function handleAddToOrder(itemId) {
     const updatedCart = await equipmentOrdersAPI.addItemToCart(itemId);
@@ -62,7 +66,7 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
          <UserLogOut user={user} setUser={setUser} /> 
       </aside>
        <MenuList
-        // menuItems={menuItems.filter(item => item.category.name === activeCat)}
+        menuItems={menuItems}
         handleAddToOrder={handleAddToOrder}
       />
       <OrderDetail

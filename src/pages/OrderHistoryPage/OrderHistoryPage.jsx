@@ -6,12 +6,13 @@ import * as usersService from '../../utilities/users-service';
 import * as equipmentOrdersAPI from '../../utilities/equipment-orders-api';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
-import EquipmentOrderList from '../../components/EquipmentOrderList/EquipmentOrderList';
+import OrderList from '../../components/OrderList/OrderList';
 
 import { useEffect, useState } from 'react';
 
 export default function OrderHistoryPage({ user, setUser }) {
   const [activeOrder, setActiveOrder] = useState('');
+  const [menuItems, setMenuItems] = useState([])
   const [orders, setOrders] = useState([]);
 
   useEffect(function() {
@@ -25,9 +26,9 @@ export default function OrderHistoryPage({ user, setUser }) {
 
   useEffect(function() {
     async function getItems() {
-      const equip = await equipsAPI.getAll();
+      const items = await equipsAPI.getAll();
 
-      // setMenuItems(equip);
+      setMenuItems(items);
       // setActiveCat(equip[0].category.name);
     }
     getItems();
@@ -48,7 +49,7 @@ export default function OrderHistoryPage({ user, setUser }) {
         <UserLogOut user={user} setUser={setUser} />
       </aside>
       
-      <EquipmentOrderList
+      <OrderList
         activeOrder={activeOrder}
         setActiveOrder={setActiveOrder}
         orders={orders}
