@@ -9,8 +9,9 @@ export function getCart() {
 
 // Add an item to a cart
 export function addItemToCart(itemId) {
+  console.log(itemId);
   // Just send itemId for best security (no pricing)
-  return sendRequest(`${BASE_URL}/cart/items/${itemId}`, 'POST');
+  return sendRequest(`${BASE_URL}/cart/equips/${itemId}`, 'POST');
 }
 
 // Update the item's qty in the cart

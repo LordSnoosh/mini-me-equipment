@@ -38,6 +38,7 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   // console.log(menuItems);
   /*--- Event Handlers ---*/
   async function handleAddToOrder(itemId) {
+    console.log(itemId);
     const updatedCart = await equipmentOrdersAPI.addItemToCart(itemId);
     setCart(updatedCart);
   }

@@ -7,7 +7,7 @@ router.get('/cart', equipmentOrdersCtrl.cart);
 // GET /api/orders
 router.get('/', equipmentOrdersCtrl.orders);
 // POST /api/orders/cart/items/:id
-router.get('/cart/items/:id', equipmentOrdersCtrl.addToCart);
+router.post('/cart/equips/:id', equipmentOrdersCtrl.addToCart);
 // POST /api/orders/cart/checkout
 router.get('/cart/checkout', equipmentOrdersCtrl.checkout);
 // POST /api/orders/cart/qty

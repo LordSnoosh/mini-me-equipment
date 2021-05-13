@@ -8,7 +8,7 @@ export default function MenuListItem({ menuItem, handleAddToOrder }) {
         {menuItem.results.map(result => 
       <div>
       <p>{result.name}</p>
-        <button className="btn-sm" onClick={() => handleAddToOrder(result._id)}>
+        <button className="btn-sm" onClick={() => handleAddToOrder(result)}>
           ADD
         </button>
       </div>
