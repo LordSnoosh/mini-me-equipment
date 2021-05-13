@@ -7,9 +7,9 @@ export default function MenuListItem({ menuItem, handleAddToOrder }) {
       <div className="name">{menuItem.name}</div>
       <div className="buy">
         <span>${menuItem.cost.toFixed(2)}</span>
-        <button className="btn-sm" onClick={() => handleAddToOrder(menuItem._id)}>
+        {/* <button className="btn-sm" onClick={() => handleAddToOrder(menuItem._id)}> */}
           ADD
-        </button>
+        {/* </button> */}
       </div>
     </div>
   );
