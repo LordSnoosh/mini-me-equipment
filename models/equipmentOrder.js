@@ -66,7 +66,7 @@ orderSchema.methods.addItemToCart = async function (itemId) {
     lineItem.qty += 1;
   } else {
     // Get the item from the "catalog"
-    const item = await mongoose.model('Equipment').findById(itemId);
+    const item = await mongoose.model('equipment').findById(itemId);
     cart.lineItems.push({ item });
   }
   // return the save() method's promise
