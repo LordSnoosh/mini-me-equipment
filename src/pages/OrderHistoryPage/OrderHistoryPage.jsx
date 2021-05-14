@@ -4,7 +4,6 @@ import Logo from '../../components/Logo/Logo';
 import * as equipsAPI from '../../utilities/equipment-api';
 import * as usersService from '../../utilities/users-service';
 import * as equipmentOrdersAPI from '../../utilities/equipment-orders-api';
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import OrderList from '../../components/OrderList/OrderList';
 
@@ -46,7 +45,6 @@ export default function OrderHistoryPage({ user, setUser }) {
       <aside>
         <Logo />
         <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
-        <UserLogOut user={user} setUser={setUser} />
       </aside>
       
       <OrderList

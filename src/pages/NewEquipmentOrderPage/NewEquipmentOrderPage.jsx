@@ -6,7 +6,6 @@ import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import MenuList from '../../components/MenuList/MenuList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 export default function NewEquipmentOrderPage({ user, setUser }) {
   const [menuItems, setMenuItems] = useState([]);
@@ -54,7 +53,7 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
         <Logo /> 
        
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-         <UserLogOut user={user} setUser={setUser} /> 
+         
       </aside>
        <MenuList
         menuItems={menuItems}

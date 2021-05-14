@@ -4,7 +4,6 @@ import '../NewEquipmentOrderPage/NewEquipmentOrderPage.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import CatalogList from '../../components/CatalogList/CatalogList';
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 export default function EquipmentCatalog({ user, setUser }) {
   const [catalogItems, setCatalogItems] = useState([]);
@@ -31,7 +30,6 @@ export default function EquipmentCatalog({ user, setUser }) {
         <Logo /> 
          
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
-         <UserLogOut user={user} setUser={setUser} /> 
       </aside>
        <CatalogList
         catalogItems={catalogItems}
