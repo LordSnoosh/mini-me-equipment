@@ -13,9 +13,12 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       <Link to="/orders/new">New Equipment Order</Link>
       &nbsp; | &nbsp;
+      <Link to="/catalogs">Equipment Catalog</Link>
+      &nbsp; | &nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>The Door</Link>
+      
     </nav>
   );
 }

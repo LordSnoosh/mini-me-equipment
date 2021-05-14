@@ -1,30 +1,24 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import * as equipmentAPI from '../../utilities/equipment-api';
 import * as equipmentOrdersAPI from '../../utilities/equipment-orders-api';
 import './NewEquipmentOrderPage.css';
 import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import MenuList from '../../components/MenuList/MenuList';
-// import CategoryList from '../../components/CategoryList/Category List'
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 export default function NewEquipmentOrderPage({ user, setUser }) {
   const [menuItems, setMenuItems] = useState([]);
-  // const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
-  // const categoriesRef = useRef([]);
   const history = useHistory();
 
   useEffect(function() {
     async function getItems() {
       const items = await equipmentAPI.getAll();
-      // categoriesRef.current = items.reduce((cats, item) => {
-      //   const cat = item.category.name;
-      //   return cats.includes(cat) ? cats : [...cats, cat];
-      // }, []);
+     
       setMenuItems([items]);
-      // setActiveCat(items[0].category.name);
+    
     }
     getItems();
 
@@ -58,11 +52,7 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
     <main className="NewOrderPage">
       <aside>
         <Logo /> 
-         {/* <CategoryList
-          // categories={categoriesRef.current}
-          // activeCat={activeCat}
-          // setActiveCat={setActiveCat}
-        /> */}
+       
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>
          <UserLogOut user={user} setUser={setUser} /> 
       </aside>

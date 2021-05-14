@@ -1,5 +1,5 @@
 const Order = require('../../models/equipmentOrder');
-const Equipment = require('../../models/equipment');
+const equipment = require('../../models/equipment');
 
 module.exports = {
   cart,
