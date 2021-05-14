@@ -13,6 +13,6 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  const equipment = await Equips.findById(req.params.id);
+  const equipment = await Equips.find(req.params.id);
   res.json(equipment);
 }
