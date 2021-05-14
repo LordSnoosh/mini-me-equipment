@@ -6,7 +6,7 @@ module.exports = {
 };
 
 async function index(req, res) {
-  const catalogs = await Catalog.find({}).sort('name').populate('category').exec();
+  const catalogs = await Catalog.find({}).sort('name').populate('cost').exec();
   // re-sort based upon the sortOrder of the categories
   catalogs.sort((a, b) => a.category.sortOrder - b.category.sortOrder);
   res.json(catalogs);

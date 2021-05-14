@@ -8,6 +8,7 @@ export default function CatalogListItem({ catalogItem }) {
         {catalogItem.results.map(result => 
       <div className="item-container">
       <p>{result.name}</p>
+      {/* {result.url} */}
         {/* <button className="btn-sm" onClick={() => handleAddToOrder(result.index)}>
           ADD
         </button> */}
