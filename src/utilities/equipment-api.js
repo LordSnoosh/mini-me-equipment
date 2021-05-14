@@ -8,10 +8,7 @@ export function getEquipmentInfo(equipment) {
   );
 }
 
-export function getSpellInfoAPI(spell) {
-  return fetch(`${BASE_URL}/spells/${spell}/`)
-      .then(finalRes => finalRes.json())
-}
+
 
 export function getAll() {
     return sendRequest(BASE_URL)
