@@ -60,7 +60,7 @@ orderSchema.methods.addItemToCart = async function (itemId) {
   // this keyword is bound to the cart (order doc)
   const cart = this;
   // Check if the item already exists in the cart
-  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.equals(itemId));
   if (lineItem) {
     // It already exists, so increase the qty
     lineItem.qty += 1;
@@ -75,7 +75,7 @@ orderSchema.methods.addItemToCart = async function (itemId) {
 
 orderSchema.methods.setItemQty = function(itemId, newQty) {
   const cart = this;
-  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.equals(itemId));
   if (lineItem && newQty <= 0) {
     lineItem.remove();
   } else if (lineItem) {
