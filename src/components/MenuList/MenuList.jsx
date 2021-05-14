@@ -9,7 +9,7 @@ export default function MenuList({ menuItems, handleAddToOrder }) {
     <main className="MenuList">
       {menuItems.map((item) => (
         <MenuListItem
-          key={item._id}
+          key={item.index}
           menuItem={item}
           handleAddToOrder={handleAddToOrder}
         />

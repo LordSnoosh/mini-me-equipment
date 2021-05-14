@@ -3,9 +3,11 @@ import sendRequest from "./send-request";
 const BASE_URL = "https://www.dnd5eapi.co/api/equipment";
 
 export function getEquipmentInfo(equipment) {
-  return fetch(`${BASE_URL}/equipment/${equipment}/`).then((finalRes) =>
-    finalRes.json()
-  );
+  return fetch(`${BASE_URL}`)
+  .then(response => response.json())
+  .then(parsedJSON => console.log(parsedJSON.equipment))
+  .then((finalRes) => finalRes.json())
+  .catch(equipment);
 }
 
 

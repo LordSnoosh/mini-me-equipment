@@ -30,14 +30,14 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   }, []);
   // console.log(menuItems);
   /*--- Event Handlers ---*/
-  async function handleAddToOrder(itemId) {
-    console.log(itemId);
-    const updatedCart = await equipmentOrdersAPI.addItemToCart(itemId);
+  async function handleAddToOrder(index) {
+    console.log(index);
+    const updatedCart = await equipmentOrdersAPI.addItemToCart(index);
     setCart(updatedCart);
   }
 
-  async function handleChangeQty(itemId, newQty) {
-    const updatedCart = await equipmentOrdersAPI.setItemQtyInCart(itemId, newQty);
+  async function handleChangeQty(index, newQty) {
+    const updatedCart = await equipmentOrdersAPI.setItemQtyInCart(index, newQty);
     setCart(updatedCart);
   }
 

@@ -56,26 +56,26 @@ orderSchema.statics.getOrders = function(userId) {
 };
 
 // Instance method for adding an item to a cart (unpaid order)
-orderSchema.methods.addItemToCart = async function (itemId) {
+orderSchema.methods.addItemToCart = async function (index) {
   // this keyword is bound to the cart (order doc)
   const cart = this;
   // Check if the item already exists in the cart
-  const lineItem = cart.lineItems.find(lineItem => lineItem.equals(itemId));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.equals(index));
   if (lineItem) {
     // It already exists, so increase the qty
     lineItem.qty += 1;
   } else {
     // Get the item from the "catalog"
-    const item = await mongoose.model('equipment').findById(itemId);
+    const item = await mongoose.model('equipment').findOneAndUpdate(index);
     cart.lineItems.push({ item });
   }
   // return the save() method's promise
   return cart.save();
 };
 
-orderSchema.methods.setItemQty = function(itemId, newQty) {
+orderSchema.methods.setItemQty = function(index, newQty) {
   const cart = this;
-  const lineItem = cart.lineItems.find(lineItem => lineItem.equals(itemId));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.equals(index));
   if (lineItem && newQty <= 0) {
     lineItem.remove();
   } else if (lineItem) {

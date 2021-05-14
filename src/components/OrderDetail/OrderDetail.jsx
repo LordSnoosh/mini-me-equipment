@@ -11,7 +11,7 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
       lineItem={item}
       isPaid={order.isPaid}
       handleChangeQty={handleChangeQty}
-      key={item._id}
+      key={item.index}
     />
   );
 

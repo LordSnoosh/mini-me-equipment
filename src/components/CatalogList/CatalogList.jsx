@@ -9,7 +9,7 @@ export default function CatalogList({ catalogItems }) {
     <main className="CatalogList">
       {catalogItems.map((item) => (
         <CatalogListItem
-          key={item._id}
+          key={item.index}
           catalogItem={item}
           
         />
