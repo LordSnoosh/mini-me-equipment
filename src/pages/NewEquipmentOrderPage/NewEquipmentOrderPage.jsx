@@ -7,6 +7,7 @@ import Logo from '../../components/Logo/Logo';
 import MenuList from '../../components/MenuList/MenuList';
 import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
+
 export default function NewEquipmentOrderPage({ user, setUser }) {
   const [menuItems, setMenuItems] = useState([]);
   const [cart, setCart] = useState(null);
@@ -14,23 +15,25 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
 
   useEffect(function() {
     async function getItems() {
-      const items = await equipmentAPI.getAll();
-     
-      setMenuItems([items]);
-    
+      // items will be an object returned from the api with a count and results array
+      const apiData = await equipmentAPI.getAll();
+      // just interested in the results array that contains the api's equip objects
+      setMenuItems(apiData.results);
     }
     getItems();
-
     // Load cart (a cart is the unpaid order for the logged in user)
     async function getCart() {
       const cart = await equipmentOrdersAPI.getCart();
       setCart(cart);
+      getItems();
     }
     getCart();
   }, []);
+
+  
   // console.log(menuItems);
   /*--- Event Handlers ---*/
-  async function handleAddToOrder(index) {
+  async function handleAddToOrder( index) {
     console.log(index);
     const updatedCart = await equipmentOrdersAPI.addItemToCart(index);
     setCart(updatedCart);
