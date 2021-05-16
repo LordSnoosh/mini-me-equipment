@@ -9,7 +9,7 @@ export function getCart() {
 
 // Add an item to a cart
 export function addItemToCart(index) {
-  console.log(index);
+  // console.log(index);
   // Just send index for best security (no pricing)
   return sendRequest(`${BASE_URL}/cart/equips/${index}`);
 }
