@@ -1,4 +1,6 @@
 .MenuList {
+  max-height: 80vmin;
+  justify-content: space-around;
     background-color: var(--tan-1);
     border: .1vmin solid var(--tan-3);
     border-radius: 2vmin;
