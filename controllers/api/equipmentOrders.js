@@ -36,7 +36,7 @@ async function cart(req, res) {
 
 async function addToCart(req, res) {
   // Add the item to the cart
-  console.log(req);
+  console.log(`inside the addToCart Controller request is ${req.body}`);
   try {
     const equipment = await Order.create(req.body);
     res.status(201).json(equipment);
