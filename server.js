@@ -21,9 +21,9 @@ app.use(require('./config/checkToken'));
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 
-const ensureLoggedIn = require('./config/ensureLoggedIn');
-app.use('/api/equips', ensureLoggedIn, require('./routes/api/equips'));
-app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
+// const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/equips', require('./routes/api/equips'));
+app.use('/api/orders', require('./routes/api/orders'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

@@ -1,4 +1,5 @@
 import sendRequest from './send-request';
+// const equipmentOrderService = require("../../controllers/api/equipmentOrders")
 
 const BASE_URL = '/api/orders';
 
@@ -11,8 +12,7 @@ export function getCart() {
 export function addItemToCart(index) {
   // console.log(index);
   // Just send index for best security (no pricing)
-  return index;
-  //return sendRequest(`${BASE_URL}/cart/equips/${index}`, 'POST' );
+  return sendRequest(BASE_URL, 'POST',  index );
 }
 
 // Update the item's qty in the cart
@@ -23,12 +23,12 @@ export function setItemQtyInCart(index, newQty) {
 }
 
 // Updates the order's (cart's) isPaid property to true
-export function checkout() {
+export function checkout(order) {
   // Changing data on the server, so make it a POST request
-  return sendRequest(`${BASE_URL}/cart/checkout`, 'POST');
+  return sendRequest(BASE_URL, 'POST', order);
 }
 
-  // Retrieve all the orders that have been paid for
-export function getAllOrders() {
-  return sendRequest(`${BASE_URL}`);
-}
+//   // Retrieve all the orders that have been paid for
+// export function getAllOrders() {
+//   return sendRequest(`${BASE_URL}`);
+// }

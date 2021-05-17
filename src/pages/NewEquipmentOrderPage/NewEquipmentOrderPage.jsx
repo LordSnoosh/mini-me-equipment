@@ -35,13 +35,13 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   // console.log(menuItems);
   /*--- Event Handlers ---*/
   async function handleAddToOrder(index) {
-
+    console.log(index)
     const updatedCart = await equipmentOrdersAPI.addItemToCart(index);
-    const currentCart = cart;
+    // const currentCart = cart;
 
-    currentCart.push(updatedCart);
+    // currentCart.push(updatedCart);
 
-    setCart([...currentCart]);
+    setCart([...index]);
     console.log(cart);
   }
 
@@ -51,7 +51,7 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   }
 
   async function handleCheckout() {
-    await equipmentOrdersAPI.checkout();
+    await equipmentOrdersAPI.checkout(cart);
     // programmatically change client-side routes
     history.push('/orders');
   }

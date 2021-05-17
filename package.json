@@ -1,6 +1,7 @@
 {
   "name": "mini-me-equipment",
   "version": "0.1.0",
+
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
@@ -44,5 +45,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001/"
 }
