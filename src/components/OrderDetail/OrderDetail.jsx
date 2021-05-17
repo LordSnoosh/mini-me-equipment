@@ -26,10 +26,11 @@ export default function OrderDetail({
       <ul>
         <>
           <h2>Order</h2>
+          {console.log(order)}
           {order.map((item) => {
-              item.map((actualItem) => {
-                return <li>{actualItem.index}</li>;
-              })
+              // item.map((actualItem) => {
+                return <li>{item.index}</li>;
+              // })
           })}
         </>
         <button className="btn-sm" onClick={handleCheckout}>
