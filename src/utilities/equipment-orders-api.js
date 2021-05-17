@@ -23,6 +23,7 @@ export function setItemQtyInCart(index, newQty) {
 
 // Updates the order's (cart's) isPaid property to true
 export function checkout(order) {
+  console.log(order);
   // Changing data on the server, so make it a POST request
   return sendRequest(BASE_URL, 'POST', order);
 }

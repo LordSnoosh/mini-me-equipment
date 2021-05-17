@@ -12,7 +12,7 @@ export default function MenuListItem({ menuItem, handleAddToOrder }) {
         </div>
       </div>
       <div className="buy">
-        <span>${menuItem.cost}</span>
+        <span>$$$$$</span>
       </div>
     </div>
   );

@@ -10,14 +10,16 @@ export default function OrderDetail({
   // React will render nothing if a component returns null
   if (!order) return null;
 
-  const lineItems = order.map((item) =>
-    <LineItem
-      lineItem={item}
-      // isPaid={order.isPaid}
-      // handleChangeQty={handleChangeQty}
-      // key={item.index}
-    />
-  );
+  // const lineItems = order.map((item) => {
+    // console.log(item)
+    // <LineItem
+    //   lineItem={item}
+    //   // isPaid={order.isPaid}
+    //   // handleChangeQty={handleChangeQty}
+    //   // key={item.index}
+    // />
+  // }
+  // );
 
   return (
     <>
@@ -25,7 +27,9 @@ export default function OrderDetail({
         <>
           <h2>Order</h2>
           {order.map((item) => {
-            return <li>{item}</li>;
+              item.map((actualItem) => {
+                return <li>{actualItem.index}</li>;
+              })
           })}
         </>
         <button className="btn-sm" onClick={handleCheckout}>

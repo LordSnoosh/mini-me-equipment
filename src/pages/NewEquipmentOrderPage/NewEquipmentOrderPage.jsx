@@ -35,11 +35,13 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
 
   // console.log(menuItems);
   /*--- Event Handlers ---*/
-  async function handleAddToOrder(index) {
-    console.log(index)
+  async function handleAddToOrder(item) {
+    const itemFromMenu = menuItems.filter(menuItem => menuItem.index === item);
+    console.log("here is the add after filtering");
+    console.log(itemFromMenu);
     //const updatedCart = await equipmentOrdersAPI.addItemToCart(index);
     //console.log(updatedCart);
-    setCart([...cart, index]);
+    setCart([...cart, itemFromMenu]);
     
   }
 
