@@ -8,16 +8,16 @@ export default function OrderDetail({
   handleCheckout,
 }) {
   // React will render nothing if a component returns null
-  //if (!order) return null;
+  if (!order) return null;
 
-  // const lineItems = order.lineItems.map(item =>
-  //   <LineItem
-  //     lineItem={item}
-  //     // isPaid={order.isPaid}
-  //     // handleChangeQty={handleChangeQty}
-  //     key={item.index}
-  //   />
-  // );
+  const lineItems = order.map((item) =>
+    <LineItem
+      lineItem={item}
+      // isPaid={order.isPaid}
+      // handleChangeQty={handleChangeQty}
+      // key={item.index}
+    />
+  );
 
   return (
     <>

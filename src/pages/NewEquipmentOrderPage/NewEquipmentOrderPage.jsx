@@ -22,13 +22,14 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
       setMenuItems(apiData.results);
     }
     getItems();
-    // Load cart (a cart is the unpaid order for the logged in user)
-    async function getCart() {
-      const cartOrder = await equipmentOrdersAPI.getCart();
-      setCart([cartOrder]);
-    //   getItems();
-    }
-    getCart();
+    // // Load cart (a cart is the unpaid order for the logged in user)
+    // async function getCart() {
+    //   const cartOrder = await equipmentOrdersAPI.getCart();
+    //   console.log(cartOrder);
+    //   setCart([cartOrder]);
+    // //   getItems();
+    // }
+    // getCart();
   }, 
   []);
 
@@ -36,9 +37,10 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   /*--- Event Handlers ---*/
   async function handleAddToOrder(index) {
     console.log(index)
-    const updatedCart = await equipmentOrdersAPI.addItemToCart(index);
-    setCart(updatedCart);
-    console.log(cart);
+    //const updatedCart = await equipmentOrdersAPI.addItemToCart(index);
+    //console.log(updatedCart);
+    setCart([...cart, index]);
+    
   }
 
   async function handleChangeQty(index, newQty) {
