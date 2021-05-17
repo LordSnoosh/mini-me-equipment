@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const equipmentSchema = require('./equipmentSchema');
+const equipment = require('./equipment');
 const Schema = mongoose.Schema;
 
 const equipmentItemSchema = new Schema({
   qty: { type: Number, default: null },
-  item: equipmentSchema
+  item: equipment
 }, {
   timestamps: true,
   toJSON: { virtuals: true }
@@ -17,7 +17,7 @@ equipmentItemSchema.virtual('extPrice').get(function() {
 
 const orderSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User'},
-  lineItems: [equipmentSchema],
+  lineItems: [equipment],
   isPaid: { type: Boolean, default: false }
 }, {
   timestamps: true,

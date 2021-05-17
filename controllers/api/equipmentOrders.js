@@ -24,7 +24,7 @@ async function addToCart(req, res) {
   // Add the item to the cart
   // console.log(req);
   const cart = await Order.getCart(req.user._id);
-  await cart.addItemToCart(req.index);
+  await cart.addItemToCart(req.params.results);
   res.json(cart);
 }
 

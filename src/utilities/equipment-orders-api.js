@@ -11,7 +11,8 @@ export function getCart() {
 export function addItemToCart(index) {
   // console.log(index);
   // Just send index for best security (no pricing)
-  return sendRequest(`${BASE_URL}/cart/equips/${index}`);
+  return index;
+  //return sendRequest(`${BASE_URL}/cart/equips/${index}`, 'POST' );
 }
 
 // Update the item's qty in the cart

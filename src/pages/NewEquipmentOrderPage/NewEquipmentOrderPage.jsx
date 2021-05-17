@@ -10,36 +10,43 @@ import OrderDetail from '../../components/OrderDetail/OrderDetail';
 
 export default function NewEquipmentOrderPage({ user, setUser }) {
   const [menuItems, setMenuItems] = useState([]);
-  const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState([]);
   const history = useHistory();
 
   useEffect(function() {
     async function getItems() {
+      
       // items will be an object returned from the api with a count and results array
       const apiData = await equipmentAPI.getAll();
       // just interested in the results array that contains the api's equip objects
       setMenuItems(apiData.results);
     }
     getItems();
-    // Load cart (a cart is the unpaid order for the logged in user)
-    async function getCart() {
-      const cart = await equipmentOrdersAPI.getCart();
-      setCart(cart);
-    //   getItems();
-    }
-    getCart();
+    // // Load cart (a cart is the unpaid order for the logged in user)
+    // async function getCart() {
+    //   const cartOrder = await equipmentOrdersAPI.getCart();
+    //   setCart([cartOrder]);
+    // //   getItems();
+    // }
+    // getCart();
   }, 
   []);
 
   // console.log(menuItems);
   /*--- Event Handlers ---*/
-  async function handleAddToOrder(apiData ) {
-    const updatedCart = await equipmentOrdersAPI.addItemToCart(apiData);
-    setCart(updatedCart);
+  async function handleAddToOrder(index) {
+
+    const updatedCart = await equipmentOrdersAPI.addItemToCart(index);
+    const currentCart = cart;
+
+    currentCart.push(updatedCart);
+
+    setCart([...currentCart]);
+    console.log(cart);
   }
 
-  async function handleChangeQty(apiData, newQty) {
-    const updatedCart = await equipmentOrdersAPI.setItemQtyInCart(apiData, newQty);
+  async function handleChangeQty(index, newQty) {
+    const updatedCart = await equipmentOrdersAPI.setItemQtyInCart(index, newQty);
     setCart(updatedCart);
   }
 
