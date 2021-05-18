@@ -7,8 +7,6 @@ router.get('/cart', equipmentOrdersCtrl.cart);
 // GET /api/orders
 // router.get('/', equipmentOrdersCtrl.orders);
 // POST /api/orders/cart/items/:id
-
-
 router.post('/', equipmentOrdersCtrl.checkout);
 // POST /api/orders/cart/checkout
 router.post('/cart/checkout', equipmentOrdersCtrl.checkout);
