@@ -37,7 +37,11 @@ Mini-Me equipment is a single page react app that would provide an equipment puc
 
 ## ------------LANDING PAGE---------------
 
+
+![Login Page](https://i.imgur.com/eN0fEow.png)
+![Signup Page](https://i.imgur.com/JjEnS8Z.png)
 ![Catalog Page](https://i.imgur.com/5ZkwtOJ.png)
+![Order History](https://i.imgur.com/aFHoOJc.png)
 ![Equipment Orders Page](https://i.imgur.com/t5Ziyzh.png)
 
 
