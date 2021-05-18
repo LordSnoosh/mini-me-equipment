@@ -13,7 +13,6 @@ export function getEquipmentInfo(equipment) {
 export default async function sendRequest(url, method = 'GET', payload = null) {
   // Fetch takes an optional options object as the 2nd argument
   // used to include a data payload, set headers, etc. 
-  console.log(`URL: ${url} & METHOD: ${method} & PAYLOAD: ${payload}`);
 
   const options = { method };
   if (payload) {
@@ -28,7 +27,6 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
     // Prefacing with 'Bearer' is recommended in the HTTP specification
     options.headers.Authorization = `Bearer ${token}`;
   }
-  console.log(`URL: ${url} & METHOD: ${method} & PAYLOAD: ${payload}`);
   const res = await fetch(url, options);
   // res.ok will be false if the status code set to 4xx in the controller action
   if (res.ok) return res.json();

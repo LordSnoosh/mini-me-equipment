@@ -3,8 +3,6 @@ import MenuListItem from "../MenuListItem/MenuListItem";
 
 
 export default function MenuList({ menuItems, handleAddToOrder }) {
-  console.log(menuItems);
-
   return (
     <main className="MenuList">
       {menuItems.map((item) => (

@@ -1,5 +1,4 @@
 import "./OrderDetail.css";
-import LineItem from "../LineItem/LineItem";
 
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({
@@ -21,15 +20,15 @@ export default function OrderDetail({
   // }
   // );
 
-  return (
-    <>
+  return (    
+    <>    
+    <h2>Order</h2>
       <ul>
         <>
-          <h2>Order</h2>
           {console.log(order)}
           {order.map((item) => {
               // item.map((actualItem) => {
-                return <li>{item.index}</li>;
+                return <li>{item[0].name} || ({item[0].url})</li>;
               // })
           })}
         </>
