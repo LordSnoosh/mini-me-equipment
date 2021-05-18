@@ -68,9 +68,12 @@ https://trello.com/b/77UX18ND/ga-project-4-minimebuilder
 
 ## ------------NEXT STEPS---------------
 
-1. 
-  * 
-  * 
-  * 
-3. 
-4. 
+1. Complete orders
+  * reform the order lineitems into a single object
+  * pull the data from the DB and display as an order
+  * include pricing
+  * include qty change/grouping
+3. flush out catalog page.
+  * render catalog items
+  * display equipment information(cost, weight, etc..)
+4. install into Ebberon-Offerup.
