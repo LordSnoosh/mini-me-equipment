@@ -35,7 +35,7 @@ Welcome to the Mini-Me Equipment!
 
 Mini-Me equipment is a single page react app that would provide an equipment puchasing system and catelog, for integration into https://github.com/LordSnoosh/eberron-offerup
 
-## ------------LANDING PAGE---------------
+## ------------ScreenCaps---------------
 
 
 ![Login Page](https://i.imgur.com/eN0fEow.png)
