@@ -1,4 +1,4 @@
-import './MenuListItem.css';
+import "./MenuListItem.css";
 
 export default function MenuListItem({ menuItem, handleAddToOrder }) {
   return (
@@ -6,7 +6,10 @@ export default function MenuListItem({ menuItem, handleAddToOrder }) {
       <div className="name">
         <div className="item-container">
           <p>{menuItem.index}</p>
-          <button className="btn-sm" onClick={() => handleAddToOrder(menuItem.index)}>
+          <button
+            className="btn-sm"
+            onClick={() => handleAddToOrder(menuItem.index)}
+          >
             ADD
           </button>
         </div>

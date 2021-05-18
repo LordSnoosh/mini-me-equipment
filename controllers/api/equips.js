@@ -1,12 +1,12 @@
-const Equips = require('../../models/equipment');
+const Equips = require("../../models/equipment");
 
 module.exports = {
   index,
-  show
+  show,
 };
 
 async function index(req, res) {
-  const equips = await Equips.find({}).sort('name').populate('category').exec();
+  const equips = await Equips.find({}).sort("name").populate("category").exec();
   // re-sort based upon the sortOrder of the categories
   equips.sort((a, b) => a.category.sortOrder - b.category.sortOrder);
   res.json(equips);

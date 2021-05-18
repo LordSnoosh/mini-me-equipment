@@ -1,13 +1,10 @@
-// import { getToken } from './users-service';
-
-export default async function sendRequest(url, method = 'GET', payload = null) {
+export default async function sendRequest(url, method = "GET", payload = null) {
   // Fetch takes an optional options object as the 2nd argument
-  // used to include a data payload, set headers, etc. 
-  console.log(`URL: ${url} & METHOD: ${method} & PAYLOAD: ${payload}`);
+  // used to include a data payload, set headers, etc.
 
   const options = { method };
   if (payload) {
-    options.headers = { 'Content-Type': 'application/json' };
+    options.headers = { "Content-Type": "application/json" };
     options.body = JSON.stringify(payload);
   }
   const token = getToken();
@@ -18,23 +15,22 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
     // Prefacing with 'Bearer' is recommended in the HTTP specification
     options.headers.Authorization = `Bearer ${token}`;
   }
-  console.log(`URL: ${url} & METHOD: ${method} & PAYLOAD: ${payload}`);
   const res = await fetch(url, options);
   // res.ok will be false if the status code set to 4xx in the controller action
   if (res.ok) return res.json();
-  throw new Error('Bad Request');
+  throw new Error("Bad Request");
 }
 
 export function getToken() {
   // getItem returns null if there's no string
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (!token) return null;
   // Obtain the payload of the token
-  const payload = JSON.parse(atob(token.split('.')[1]));
+  const payload = JSON.parse(atob(token.split(".")[1]));
   // A JWT's exp is expressed in seconds, not milliseconds, so convert
   if (payload.exp < Date.now() / 1000) {
     // Token has expired - remove it from localStorage
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     return null;
   }
   return token;

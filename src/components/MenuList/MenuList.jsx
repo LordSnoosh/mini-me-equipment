@@ -1,7 +1,6 @@
 import "./MenuList.css";
 import MenuListItem from "../MenuListItem/MenuListItem";
 
-
 export default function MenuList({ menuItems, handleAddToOrder }) {
   return (
     <main className="MenuList">
