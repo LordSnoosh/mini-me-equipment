@@ -11,7 +11,8 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   const [menuItems, setMenuItems] = useState([]);
   const [cart, setCart] = useState([]);
   const history = useHistory();
-
+  
+//state is set, and all the epuipment from the API is renderd
   useEffect(function () {
     async function getItems() {
       const apiData = await equipmentAPI.getAll();
@@ -21,6 +22,8 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   }, []);
 
   /*--- Event Handlers ---*/
+
+  //adds the item object into the empty cart
   async function handleAddToOrder(item) {
     const itemFromMenu = menuItems.filter(
       (menuItem) => menuItem.index === item
@@ -28,6 +31,8 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
     setCart([...cart, itemFromMenu]);
   }
 
+
+  //handles the push to the DB
   async function handleCheckout() {
     await equipmentOrdersAPI.checkout(cart);
     history.push("/orders");

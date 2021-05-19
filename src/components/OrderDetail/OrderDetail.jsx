@@ -5,7 +5,7 @@ export default function OrderDetail({ order, handleCheckout }) {
 
   return (
     <>
-      
+      //currently, the equipment from the menu, is compiled into seprate arrays, instead of a single array
       <ul>
         <>
         <h2>Order</h2>
