@@ -11,7 +11,7 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
   const [menuItems, setMenuItems] = useState([]);
   const [cart, setCart] = useState([]);
   const history = useHistory();
-  
+
 //state is set, and all the epuipment from the API is renderd
   useEffect(function () {
     async function getItems() {
@@ -25,10 +25,8 @@ export default function NewEquipmentOrderPage({ user, setUser }) {
 
   //adds the item object into the empty cart
   async function handleAddToOrder(item) {
-    const itemFromMenu = menuItems.filter(
-      (menuItem) => menuItem.index === item
-    );
-    setCart([...cart, itemFromMenu]);
+   
+    setCart([...cart, item]);
   }
 
 

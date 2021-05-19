@@ -12,7 +12,7 @@ export default function OrderDetail({ order, handleCheckout }) {
           {order.map((item) => {
             return (
               <li>
-                {item[0].name} || ({item[0].url})
+                {item.name} || ({item.url})
               </li>
             );
           })}
